@@ -5,6 +5,7 @@
     <title></title>
   </head>
   <body>
-      <h1>Ciao! Sono un messaggio statico!</h1>
+      <h1>Ciao {{ Auth::user() -> name }}! Sono un messaggio!</h1>
+      <p>{{ $testoEmail }}</p>
   </body>
 </html>

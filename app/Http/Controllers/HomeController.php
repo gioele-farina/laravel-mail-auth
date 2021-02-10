@@ -35,8 +35,13 @@ class HomeController extends Controller
       return view('pages.writeMail');
     }
     public function sendMail(Request $request){
+      $request -> validate([
+        'message' => 'required|string'
+      ]);
+
       $mail = Auth::user() -> email;
 
-      Mail::to($mail)->send(new TestEmail());
+      Mail::to($mail)->send(new TestEmail($request['message']));
+      return redirect() -> route('write-mail');
     }
 }

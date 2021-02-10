@@ -11,9 +11,11 @@ class TestEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct()
-    {
+    public $testoEmail; //variabile visibile direttamente nella view.
 
+    public function __construct($testoEmail)
+    {
+      $this -> testoEmail = $testoEmail;
     }
 
     public function build()

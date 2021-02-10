@@ -1,6 +1,17 @@
 @extends('layouts.emailLayout')
 
 @section('content')
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+
   <h2>Spedici una nuova mail</h2>
 
   <form action="{{route('send-mail')}}" method="post">
