@@ -10944,3 +10944,12 @@ a.text-dark:focus {
   }
 }
 
+.mail-container {
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: auto;
+}
+

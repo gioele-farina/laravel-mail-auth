@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Mail\TestEmail;
+use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,5 +29,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function writeMail() {
+      return view('pages.writeMail');
+    }
+    public function sendMail(Request $request){
+      $mail = Auth::user() -> email;
+
+      Mail::to($mail)->send(new TestEmail());
     }
 }
